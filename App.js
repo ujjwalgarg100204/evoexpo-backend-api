@@ -9,8 +9,7 @@ app.use(bodyParser.urlencoded({
 app.use(bodyParser.json());
 
 // mongoose.connect("mongodb://localhost:27017/evoevent");
-// mongoose.connect("mongodb+srv://<credentials>@cluster0.7leeydo.mongodb.net/myFirstDatabase?appName=mongosh+1.5.4");
-mongoose.connect("mongodb+srv://admin-ujjwal:TugTUkbjXtGcEPxL@cluster0.7leeydo.mongodb.net/?retryWrites=true&w=majority/test")
+mongoose.connect("mongodb+srv://admin-ujjwal:TugTUkbjXtGcEPxL@cluster0.7leeydo.mongodb.net/evoexpo")
 
 
 // importing routers

@@ -43,9 +43,7 @@ AdminRouter.route("/:id")
     .get((req, res) => {
         const {id: adminID} = req.params;
         AdminModel.findOne({_id: adminID}, (err, foundAdmin) => {
-            err ? res.json({
-                    err
-                })
+            err ? res.json({err})
                 : res.json({
                     foundAdmin,
                     err: false,
