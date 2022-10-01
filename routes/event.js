@@ -1,11 +1,12 @@
 const EventRouter = require("express").Router()
 const {EventModel} = require("../models/event");
+const {StaffModel} = require("../models/staff");
+const {JobModel} = require("../models/jobs");
 
 // for all events
 EventRouter.route("/")
     .get((req, res) => {
-        const {userID} = req.body;
-        EventModel.find({belongsTo: userID}, (err, foundEvents) => {
+        EventModel.find({}, (err, foundEvents) => {
             err ? res.json({err})
                 : res.json({
                     foundEvents
@@ -14,36 +15,40 @@ EventRouter.route("/")
     })
     .post((req, res) => {
         const {
-            belongsTo, // not req
+            adminID,
             title,
-            type,   // like hackathon, or job fare
-            eventAccess,    // public or private
-            lengthOfEvent,  // length of event in hours
-            startingDate,
+            imageLink = "",
+            publicOrPrivate,
+            socials = {},
+            type,
+            startingDate = new Date(),
             endDate,
-            platform,   // online or offline
-            venue,  // place like SJT or something
+            venue,  // actual place or link
+            landingPageLink = "",
             capacity,
-            description,
-            imageLink,
-            socials,    // link to insta and all
-            others  // other properties they might want to enter
+            currParticipantCount,
+            participants = [],
+            staff = [],
+            jobs = [],
+            others = []    // mainly should be heading and description
         } = req.body;
 
         const newEvent = new EventModel({
-            belongsTo,
+            adminID,
             title,
-            type,
-            startingDate: new Date(startingDate),
-            endDate: endDate ? new Date(endDate) : null,
-            eventAccess,
-            lengthOfEvent,
-            platform,
-            venue,
-            capacity,
-            description,
             imageLink,
+            publicOrPrivate,
             socials,
+            type,
+            startingDate,
+            endDate,
+            venue,  // actual place or link
+            landingPageLink,
+            capacity,
+            currParticipantCount,
+            participants,
+            staff,
+            jobs,
             others
         });
         newEvent.save(err => {

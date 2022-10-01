@@ -1,58 +1,24 @@
 const mongoose = require("mongoose");
+const {StaffModel} = require("./staff");
+const {JobModel} = require("./jobs");
 
-/*
-I am going to store all events in another collection, so i need
-to know which event belongs to which one, so since, each user gets its
-own unique id, i am going to use that
- */
 const eventSchema = mongoose.Schema({
-    belongsTo: {
-        type: String,
-        required: true
-    },
-    title: {
-        type: String,
-        required: true
-    },
-    eventAccess: {
-        type: String,   // public or non-public
-        required: true
-    },
-    lengthOfEvent: {
-        type: Number,   // length of event of in hour format
-        required: true
-    },
-    type: {
-        type: String,
-        require: true
-    },
-    startingDate: {
-        type: Date,
-        required: true
-    },
-    endDate: Date,
-    platform: {
-        type: String,
-        required: true
-    },
-    venue: String,
-    capacity: {
-        type: Number,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
+    adminID: String,
+    title: String,
     imageLink: String,
-    socials: {
-        type: Map,
-        of: String
-    },
-    others: {   // as user can give custom fields of event, it is necessary
-        type: Map,
-        of: String
-    }
+    publicOrPrivate: String,
+    socials: Object,
+    type: String,
+    startingDate: Date,
+    endDate: Date,
+    venue: String,  // actual place or link
+    landingPageLink: String,
+    capacity: Number,
+    currParticipantCount: Number,
+    participants: [String],
+    staff: [StaffModel],
+    jobs: [JobModel],
+    others: [Object]    // mainly should be heading and description
 });
 
 module.exports.EventModel = new mongoose.model("Event", eventSchema);
