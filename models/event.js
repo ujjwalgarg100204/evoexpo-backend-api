@@ -18,7 +18,7 @@ const eventSchema = mongoose.Schema({
     participants: [String],
     staff: [StaffModel],
     jobs: [JobModel],
-    others: [Object]    // mainly should be heading and description
+    others: [Object]    // mainly should be heading and desc
 });
 
 module.exports.EventModel = new mongoose.model("Event", eventSchema);
