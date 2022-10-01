@@ -5,9 +5,13 @@ const {JobSchema} = require("./jobs");
 const eventSchema = mongoose.Schema({
     adminID: String,
     title: String,
+    description: String,
     imageLink: String,
     publicOrPrivate: String,
+    budget: Number,
+    expenses: Number,
     socials: Object,
+    sponsors: Object,
     type: String,
     startingDate: Date,
     endDate: Date,

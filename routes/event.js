@@ -21,6 +21,8 @@ EventRouter.route("/")
             publicOrPrivate,
             socials = {},
             type,
+            budget,
+            expenses,
             startingDate = new Date(),
             endDate,
             venue,  // actual place or link
@@ -40,6 +42,8 @@ EventRouter.route("/")
             publicOrPrivate,
             socials,
             type,
+            budget,
+            expenses,
             startingDate,
             endDate,
             venue,  // actual place or link
