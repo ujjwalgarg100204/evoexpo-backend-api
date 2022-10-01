@@ -12,9 +12,9 @@ AdminRouter.route("/")
         });
     })
     .post((req, res) => {
-        const {name, email, profilePicLink, googleOAuthID} = req.body;
+        const {name, email, contactNumber, profilePicLink, eventCount = 0, listOfEvents = []} = req.body;
         const newAdmin = new AdminModel({
-            name, email, profilePicLink, googleOAuthID,
+            name, email, contactNumber, profilePicLink, eventCount, listOfEvents,
         });
         newAdmin.save(err => {
             err ? res.json({

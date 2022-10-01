@@ -19,14 +19,16 @@ const {ContactRouter} = require("./routes/contactForm");
 const {EventRouter} = require("./routes/event");
 const {AdminRouter} = require("./routes/admin");
 const {ParticipantRouter} = require("./routes/participant");
+const {GoogleAuthenticatorRouter} = require("./routes/loginWithGoogle");
 
 
 app.use("/contact-form", ContactRouter);
 app.use("/api/events", EventRouter);
 app.use("/api/admin", AdminRouter);
 app.use("/api/participant", ParticipantRouter);
+app.use("/", GoogleAuthenticatorRouter);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => {
-    console.log(`Listening on ${PORT} at http://localhost:5000/`)
+    console.log(`Listening on ${PORT} at http://localhost:${PORT}/`)
 });

@@ -1,16 +1,11 @@
 const mongoose = require("mongoose");
 
 const adminSchema = mongoose.Schema({
-    name: {
-        type: String,
-        required: true
-    },
-    email: {
-        type: String,
-        required: true
-    },
+    name: String,
+    email: String,
+    contactNumber: String,
     profilePicLink: String, // link to pic
-    googleOAuthID: String,
+    eventCount: Number,
     listOfEvents: Array
 });
 
