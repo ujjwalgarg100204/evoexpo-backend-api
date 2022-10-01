@@ -9,4 +9,5 @@ const jobSchema = mongoose.Schema({
     completedDate: Date
 });
 
+module.exports.JobSchema = jobSchema;
 module.exports.JobModel = new mongoose.model("Job", jobSchema);

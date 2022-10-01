@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
-const {StaffModel} = require("./staff");
-const {JobModel} = require("./jobs");
+const {StaffSchema} = require("./staff");
+const {JobSchema} = require("./jobs");
 
 const eventSchema = mongoose.Schema({
     adminID: String,
@@ -16,8 +16,8 @@ const eventSchema = mongoose.Schema({
     capacity: Number,
     currParticipantCount: Number,
     participants: [String],
-    staff: [StaffModel],
-    jobs: [JobModel],
+    staff: [StaffSchema],
+    jobs: [JobSchema],
     others: [Object]    // mainly should be heading and desc
 });
 

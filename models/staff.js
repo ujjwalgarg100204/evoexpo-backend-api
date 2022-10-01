@@ -7,4 +7,5 @@ const staffSchema = mongoose.Schema({
     appointedSince: Date
 });
 
+module.exports.StaffSchema = staffSchema;
 module.exports.StaffModel = new mongoose.model("Staff", staffSchema);
