@@ -6,7 +6,7 @@ const adminSchema = mongoose.Schema({
     contactNumber: String,
     profilePicLink: String, // link to pic
     eventCount: Number,
-    listOfEvents: Array
+    listOfEvents: [String]
 });
 
 module.exports.AdminModel = new mongoose.model("Admin", adminSchema);
