@@ -6,6 +6,7 @@ const adminSchema = mongoose.Schema({
     contactNumber: String,
     profilePicLink: String, // link to pic
     eventCount: Number,
+    messages: [String],
     listOfEvents: [String]
 });
 

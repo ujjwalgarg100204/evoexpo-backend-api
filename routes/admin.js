@@ -14,7 +14,7 @@ AdminRouter.route("/")
     .post((req, res) => {
         const {name, email, contactNumber, profilePicLink, eventCount = 0, listOfEvents = []} = req.body;
         const newAdmin = new AdminModel({
-            name, email, contactNumber, profilePicLink, eventCount, listOfEvents,
+            name, email, contactNumber, profilePicLink,eventCount, listOfEvents,
         });
         newAdmin.save(err => {
             err ? res.json({

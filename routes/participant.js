@@ -12,10 +12,10 @@ ParticipantRouter.route("/")
         });
     })
     .post((req, res) => {
-        const {name, email, profilePicLink, googleOAuthID} = req.body;
+        // when participant logins for the first time,she/ he haven't participated in any event
+        const {name, email, profilePicLink, eventCount = 0, eventsParticipatedIn = []} = req.body;
         const newParticipant = new ParticipantModel({
-            name, email, profilePicLink, googleOAuthID, eventsParticipatedIn: []
-            // when participant logins for the first time, he haven't participated in any event
+            name, email, profilePicLink, eventCount, eventsParticipatedIn
         });
         newParticipant.save(err => {
             err ? res.json({
